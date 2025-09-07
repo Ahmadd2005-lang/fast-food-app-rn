@@ -54,6 +54,7 @@ export const createUser = async ({email, password, name}: CreateUserParams) => {
 
 export const signIn = async({email, password}: SignInParams) => {
     try{
+        
         const session = await account.createEmailPasswordSession(email, password);
 
     }catch(e){

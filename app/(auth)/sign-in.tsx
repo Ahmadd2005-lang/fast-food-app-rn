@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link, router } from 'expo-router'
 import CustomInput from '@/components/Custominput'
 import CustomButton from '@/components/CustomButton'
-import { signIn } from '@/lib/appwrite'
+import { account, signIn } from '@/lib/appwrite'
 import * as Sentry from '@sentry/react-native'
 
 const SignIn = () => {
@@ -19,7 +19,7 @@ const SignIn = () => {
     try{
       // Call Appwrite Sign In Function
       await signIn({email, password});
-
+      
       router.replace('/');
 
     }catch(error: any){
@@ -49,7 +49,7 @@ const SignIn = () => {
         />
 
         <CustomButton
-          title='Sign In'
+          title='Sign in'
           isLoading={isSubmitting}
           onPress={submit}
         />
@@ -59,7 +59,7 @@ const SignIn = () => {
             Dont have an account?
           </Text>
           <Link href={"/(auth)/sign-up"} className='base-bold text-primary'>
-            Sign Up          
+            Sign up          
           </Link>
           
         </View>
